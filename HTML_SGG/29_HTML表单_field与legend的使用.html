@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>29_HTML表单_field与legend的使用</title>
+    </head>
+    <body>
+        <form action="https://search.jd.com/search">
+           <!--主要信息-->
+            <fieldset>
+               <legend>主要信息</legend>
+                <!--文本输入框-->
+                账户：
+                <input type="text" name="account" value="空气炸锅" maxlength="10"> <br>
+
+                <!--密码输入框-->
+                密码：
+                <input type="password" name="pwd" value="123456" maxlength="10"> <br>
+
+                <!--单选框-->
+                性别：
+                <input type="radio" name="sex" value="female" checked> 女
+                <input type="radio" name="sex" value="male"> 男    <br>
+            </fieldset>
+            <br>
+
+            <!--附加信息-->
+            <fieldset>
+                <legend>附加信息</legend>
+                爱好：
+                <input type="checkbox" name="hobby" value="reading" checked> 读书
+                <input type="checkbox" name="hobby" value="running" checked> 跑步
+                <input type="checkbox" name="hobby" value="food"> 美食   <br>
+
+                <!--文本域-->
+                <!--不能编写type属性，其他属性与普通文本输入框一致-->
+                其他：
+                <textarea name="msg" rows="5" cols="20">我是文本域</textarea> <br>
+
+                <!--下拉框-->
+                籍贯：
+                <select name="from">
+                    <option value="济宁">济宁</option>
+                    <option value="柳州">柳州</option>
+                    <option value="武汉">武汉</option>
+                    <option value="深圳" selected>深圳</option>
+                </select>
+                <br>
+            </fieldset>
+            <br>
+
+            <!--提交按钮-->
+            <!--两种方法都不可以写name属性-->
+            <button>确定</button>   <!--提交按钮第一种写法-->
+            <!--<input type="submit" value="点我提交表单">  &lt;!&ndash;提交按钮第二种写法&ndash;&gt;-->
+
+            <!--重置按钮-->
+            <!--两种方法都不可以写name属性-->
+            <button type="reset">点我重置</button>
+            <!--<input type="reset" value="点我重置">-->
+
+            <!--普通按钮-->
+            <button type="button">检测账户是否被注册</button> <br>
+            <!--<input type="button" value="普通按钮">-->
+
+        </form>
+    </body>
+</html>

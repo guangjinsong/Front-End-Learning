@@ -6,10 +6,22 @@
     </head>
     <body>
         <!--label标签：当点击“文字”时，也可以获取焦点-->
+        <!--第一种方式-->
         <label for="acc">账户：</label>
         <input id="acc" type="text" name="account" value="空气炸锅" maxlength="10"> <br>
 
-        <label for="pw">密码：</label>
-        <input id="pw" type="password" name="pwd" value="123456" maxlength="10"> <br>
+        <!--第二种方式-->
+        <label >
+            密码：
+            <input type="password" name="pwd" value="123456" maxlength="10"> <br>
+        </label>
+
+        <!--单选框-->
+        性别：
+        <input id="nan" type="radio" name="sex" value="female" checked>
+        <label for="nan">女</label>
+        <label>
+            <input type="radio" name="sex" value="male"> 男
+        </label>
     </body>
 </html>
