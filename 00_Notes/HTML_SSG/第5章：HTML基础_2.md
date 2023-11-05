@@ -281,3 +281,223 @@
      ![image-20231105115313190](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311051153234.png)
 
      ![image-20231105115258047](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311051152080.png)
+
+
+
+## 常用表单控件
+
+### 文本输入框
+
+```html
+<input type="text">
+```
+
+![image-20231105202147967](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052021042.png)
+
+### 密码输入框
+
+```html
+<input type="password">
+```
+
+![image-20231105202238381](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052022416.png)
+
+### 单选框
+
+```html
+<input type="radio" name="sex" value="female">女
+<input type="radio" name="sex" value="male">男
+```
+
+![image-20231105202338060](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052023098.png)
+
+### 复选框
+
+```html
+<input type="checkbox" name="hobby" value="reading">读书
+<input type="checkbox" name="hobby" value="running">运动
+<input type="checkbox" name="hobby" value="food">美食
+```
+
+![image-20231105202612565](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052026606.png)
+
+### 隐藏域
+
+```html
+<input type="hidden" name="tag" value="100">
+```
+
+![image-20231105202657335](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052026747.png)
+
+### 提交按钮
+
+```html
+<input type="submit" value="点我提交表单"> <!--第一种方式-->
+<button>点我提交表单</button> <!--第二种方式-->
+```
+
+![image-20231105202828644](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052028683.png)
+
+### 重置按钮
+
+```html
+<input type="reset" value="点我重置"> <!--第一种方式-->
+<button type="reset">点我重置</button> <!--第二种方式-->
+```
+
+
+
+### 普通按钮
+
+```html
+<input type="button" value="普通按钮"> <!--第一种方式-->
+<button type="button">普通按钮</button> <!--第二种方式-->
+```
+
+1. 普通按钮和非普通按钮的区别：如果会提交或者重置表单为普通按钮，否则是非普通按钮
+
+
+
+### 文本域
+
+```html
+<textarea name="msg" rows="22" cols="3">我是文本域</textarea>
+```
+
+![image-20231105203619604](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052036645.png)
+
+
+
+### 下拉框
+
+```html
+<select name="from">
+    <option value="黑">黑龙江</option>
+    <option value="辽">辽宁</option>
+    <option value="吉">吉林</option>
+    <option value="粤" selected>广东</option>
+</select>
+```
+
+![image-20231105203824018](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052038065.png)
+
+
+
+## 禁用表单控件
+
+* 给表单控件的标签设置 `disabled` 既可禁用表单控件。
+
+* `input`、`textarea`、button、`select`和`option`都可以设置`disabled`属性
+
+### 
+
+### `label`标签
+
+* `label`标签可以表单控件相关联，关联之后点击文字，与之对应的表单控件就会获取焦点。简单来说，就是点击“文字”就可以获取焦点
+
+* 两种与`label`关联的方式如下：
+
+  * 让`label`标签的`for`属性的值等于表单控件的id
+  * 把表单控件套在`label`标签中
+
+* 示例代码
+
+  ```html
+  <body>
+      <!--label标签：当点击“文字”时，也可以获取焦点-->
+      <!--第一种方式-->
+      <label for="acc">账户：</label>
+      <input id="acc" type="text" name="account" value="空气炸锅" maxlength="10"> <br>
+  
+      <!--第二种方式-->
+      <label >
+          密码：
+          <input type="password" name="pwd" value="123456" maxlength="10"> <br>
+      </label>
+  
+      <!--单选框-->
+      性别：
+      <input id="nan" type="radio" name="sex" value="female" checked>
+      <label for="nan">女</label>
+      <label>
+          <input type="radio" name="sex" value="male"> 男
+      </label>
+  </body>
+  ```
+
+
+
+### `fieldset` 与 `legend` 的使用
+
+* `fieldset`可以为表单控件分组；`legend`是分组的标题
+
+* 示例代码
+
+  ```html
+          <form action="https://search.jd.com/search">
+             <!--主要信息-->
+              <fieldset>
+                 <legend>主要信息</legend>
+                  <!--文本输入框-->
+                  账户：
+                  <input type="text" name="account" value="空气炸锅" maxlength="10"> <br>
+  
+                  <!--密码输入框-->
+                  密码：
+                  <input type="password" name="pwd" value="123456" maxlength="10"> <br>
+  
+                  <!--单选框-->
+                  性别：
+                  <input type="radio" name="sex" value="female" checked> 女
+                  <input type="radio" name="sex" value="male"> 男    <br>
+              </fieldset>
+              <br>
+  
+              <!--附加信息-->
+              <fieldset>
+                  <legend>附加信息</legend>
+                  爱好：
+                  <input type="checkbox" name="hobby" value="reading" checked> 读书
+                  <input type="checkbox" name="hobby" value="running" checked> 跑步
+                  <input type="checkbox" name="hobby" value="food"> 美食   <br>
+  
+                  <!--文本域-->
+                  <!--不能编写type属性，其他属性与普通文本输入框一致-->
+                  其他：
+                  <textarea name="msg" rows="5" cols="20">我是文本域</textarea> <br>
+  
+                  <!--下拉框-->
+                  籍贯：
+                  <select name="from">
+                      <option value="济宁">济宁</option>
+                      <option value="柳州">柳州</option>
+                      <option value="武汉">武汉</option>
+                      <option value="深圳" selected>深圳</option>
+                  </select>
+                  <br>
+              </fieldset>
+              <br>
+  
+              <!--提交按钮-->
+              <!--两种方法都不可以写name属性-->
+              <button>确定</button>   <!--提交按钮第一种写法-->
+              <!--<input type="submit" value="点我提交表单">  &lt;!&ndash;提交按钮第二种写法&ndash;&gt;-->
+  
+              <!--重置按钮-->
+              <!--两种方法都不可以写name属性-->
+              <button type="reset">点我重置</button>
+              <!--<input type="reset" value="点我重置">-->
+  
+              <!--普通按钮-->
+              <button type="button">检测账户是否被注册</button> <br>
+              <!--<input type="button" value="普通按钮">-->
+          </form>
+  ```
+
+  
+
+## 总结
+
+![image-20231105205013131](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052050195.png)
+
+![image-20231105205041011](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311052050063.png)
