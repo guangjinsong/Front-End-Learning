@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>17_HTML超链接</title>
+    </head>
+    <body>
+        <!--跳转到其他网页-->
+        <p>
+            <!--<a href="https://cn.bing.com/" target="_blank">go to Bing</a>-->
+            <!--<a href="https://www.baidu.com/" target="_self">go to Baidu</a>-->
+
+            <!--a标签内添加除自身外的其他元素-->
+            <a href="https://www.jd.com/">
+                <img src="京东.jpg" alt="京东头像">
+            </a>
+
+            <!--跳转到本地网页-->
+            <!--<a href="10_HTML排版标签">去看排版标签</a>-->
+        </p>
+        <br>
+
+        <!--跳转到文件-->
+        <p>
+            <!--浏览器能直接代开的文件-->
+            <a href="京东.jpg">京东</a>
+            <br>
+
+            <!--浏览器不能打开的文件，会自动出发下载-->
+            <a href="learning.zip">下载压缩文件</a>
+            <br>
+
+            <!--强制触发下载-->
+            <a href="京东.jpg" download="京东.jpg">京东</a>
+            <br>
+        </p>
+
+        <br>
+        <br>
+        <!--跳转锚点-->
+        <p>
+            <a href="#yh">看油画</a> <br>
+            <a href="#jd">去京东</a>
+
+            <div>天空</div>
+            <img src="美丽的天空.jpg" width="400">
+
+            <div>油画</div>
+            <a name="yh"></a>
+            <img src="油画.jpg" width="400">
+
+            <div>京东</div>
+            <img src="京东.jpg" width="800" id = "jd">
+
+            <!--回到顶部-->
+            <a href="#">回到顶部</a>    <br>
+
+            <!--刷新页面-->
+            <a href="">刷新页面</a>  <br>
+
+
+        </p>
+
+
+
+        
+        
+
+
+
+    </body>
+</html>
