@@ -243,3 +243,41 @@
 
 1. 不要使用`br`标签来增加文本之间的行间隔，应使用`p`标签，或`CSS`中`margin`属性
 2. `hr`语义是分隔，如果不想要语义，只是想画一条水平线，那么应当使用`CSS`完成
+
+
+
+# 表单
+
+## 基本结构
+
+1. 表单简介：一个包含交互的区域，用于收集用户提供的数据
+
+   ![image-20231105110725365](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311051107453.png)
+
+2. 示例代码
+
+   ```html
+   <form action="https://www.baidu.com/s" target="_blank">
+       <input type="text" name="wd">
+       <button>去百度搜索</button>
+   </form>
+   
+   <hr>
+   
+   <form action="https://search.jd.com/search" target="_blank" method="get">
+       <input type="text" name="keyword">
+       <button>去京东搜索</button>
+   </form>
+   ```
+
+3. 属性总结
+
+   * `<form>`标签中的`action`的属性值不是通常我们认为的属性值，例如，如果使用百度搜索，那么就需要使用
+
+     `https://www.baidu.com/s`这个带`/s`的网址（返回搜索结果），而不是`https://www.baidu.com`（不管输入的数据是什么都是返回百度的搜索页面，不返回搜索结果）
+
+   * `<input>`标签中的`name`属性的属性值要与`<form>`标签中`action`属性所代表的网址页面的搜索框的`name`属性的属性值对应
+
+     ![image-20231105115313190](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311051153234.png)
+
+     ![image-20231105115258047](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311051152080.png)
