@@ -11,9 +11,13 @@
 
 ![img](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311061535916.gif)
 
+
+
 # 2. WebStorm调整html的换行缩进
 
 ![img](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311061536696.png)
+
+
 
 # 3. 去除html注释默认加空格并以行开始位置对齐
 
@@ -29,6 +33,8 @@
 
 ![img](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311061536445.png)
 
+
+
 # 4. 改变外观字体
 
 1. 问题：改变外观字体，主要是中文字体
@@ -43,10 +49,20 @@
 
 ![img](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311061536183.png)
 
+
+
 # 5. 自动保存
 
 ![img](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311061536602.png)
 
+
+
 # 6. 设置默认打开文件夹
 
 ![img](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311061536609.png)
+
+
+
+# 自动注释前加空格
+
+![动画](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311071726012.gif)
