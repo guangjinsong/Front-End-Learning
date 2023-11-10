@@ -1,0 +1,126 @@
+# CSS简介
+
+* CSS的全称为层叠样式表(`Cascading Style Sheets`)
+  * 层叠: 一层一层叠上去
+  * 样式: 文字大小, 背景颜色, 元素高度等
+
+* CSS也是一种标记语言, 用于给HTML结构设置样式, 例如文字大小, 颜色, 元素高度等
+* 简单理解, CSS可以美化HTML, 让HTML更漂亮
+* 核心思想: HTML搭建结构, CSS添加样式, 从而实现**结构与样式的分离**
+
+
+
+# CSS的编写位置
+
+## 行内样式（内联样式）
+
+* 简介: 写在标签的 `style` 属性中
+* 语法: `<h1 style="color:red;font-size:60px;">欢迎来到尚硅谷学习</h1>`
+* 总结
+  1. `style` 属性的值不能随便写，写要符合 CSS 语法规范，是**名:值;** 的形式
+  2. 行内样式表，只能控制当前标签的样式，对其他标签无效
+  3. 书写繁琐、样式不能复用、并且没有体现出：**结构与样式分离** 的思想，不推荐大量使用，只有对当前元素添加简单样式时，才偶尔使用
+
+
+
+## 内部样式
+
+* 简介: 写在HTML页面内部, 将所有的CSS代码提取出来, 单独放在`<style>`标签中
+
+* 语法
+
+  ```css
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>位置2_内部样式</title>
+  
+          <style>
+              h1{
+                  color: green;
+                  font-size: 20px;
+              }
+              h2{
+                  color: aqua;
+                  font-size: 40px;
+              }
+              img{
+                  width: 200px; /* px单位一定要加上, 否则无效 */
+              }
+          </style>
+      </head>
+      <body>
+          <h1>欢迎来到SGJ的学习空间</h1>
+          <h2>CSS学习</h2>
+          <img src="油画.jpg">
+      </body>
+  </html>
+  ```
+
+* 总结
+
+  * `<style>`标签理论上可以放在HTML的任何地方, 但一般放在`<Head>`标签中
+
+  * 优点: 样式可以复用, 代码结构清晰
+
+  * 缺点
+
+    * 并没有实现结构与样式的完全分离
+    * 多个HTML文档无法复用样式
+
+    
+
+## 外部样式
+
+* 简介: 写在单独的 `.css` 文件中，随后在 HTML 文件中引入使用
+
+* 语法
+
+  1. 新建一个扩展名为 .css 的样式文件，把所有 CSS 代码都放入此文件中
+
+     ```css
+     h1{
+         color: green;
+         font-size: 20px;
+     }
+     h2{
+         color: aqua;
+         font-size: 40px;
+     }
+     img{
+         width: 200px; /* px单位一定要加上, 否则无效 */
+     }
+     ```
+
+  2. 在 HTML 文件中引入 `.css` 文件
+
+     ```html
+     <!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <meta charset="UTF-8">
+             <title>位置2_内部样式</title>
+     
+             <!-- 从外部引入样式 -->
+             <link rel="stylesheet" href="position3.css">
+         </head>
+         <body>
+             <h1>欢迎来到SGJ的学习空间</h1>
+             <h2>CSS学习</h2>
+             <img src="油画.jpg">
+         </body>
+     </html>
+     ```
+
+* 总结
+
+  1. `<link>` 标签要写在 `<head>` 标签中
+  2. `<link>` 标签属性说明：
+     * href ：引入的文档来自于哪里
+     * rel ：( relation ：关系）说明引入的文档与当前文档之间的关系
+
+  3. 外部样式的优势：样式可以复用、结构清晰、可触发浏览器的缓存机制，提高访问速度 ，实现了**结构与样式的完全分离**。
+
+  4. 实际开发中，**几乎都使用外部样式**，这是**最推荐的使用方式！**
+
