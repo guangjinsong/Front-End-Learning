@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>01_交集选择器</title>
+        <style>
+            .rich {
+                color: gold;
+            }
+            .beauty {
+                color: red;
+            }
+            p.beauty {
+                color: green;
+            }
+            /*id选择器一般不写*/
+            p.beauty#pq {
+                color: darkmagenta;
+            }
+            .rich.beauty {
+                color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="rich"> 土豪张三 </h2>
+        <h2 class="beauty"> 明星李四 </h2>
+        <h2 class="rich beauty">土豪明星王五</h2>
+        <hr>
+        <p class="beauty" id="wc">小狗旺财</p>
+        <p class="beauty" id="pq">小猪佩奇</p>
+    </body>
+</html>
