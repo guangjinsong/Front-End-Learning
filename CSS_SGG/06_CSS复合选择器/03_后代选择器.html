@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>03_后代选择器</title>
+        <style>
+            /*ul后代元素名为li的元素*/
+            ul li {
+                color: red;
+            }
+            ul li a {
+                color: orange;
+            }
+            ol li {
+                color: green;
+            }
+            ol li a {
+                color: pink;
+            }
+            .subject li {
+               color: aqua;
+            }
+            .subject #front-end {
+                color: darkmagenta;
+            }
+            .subject li.front-end {
+                color: gold;
+            }
+            .subject li#front-end {
+                color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>读书</li>
+            <li>运动</li>
+            <li>
+                <a href="#">美食</a>
+            </li>
+        </ul>
+        <hr>
+        <ol>
+            <li>张三</li>
+            <li>李四</li>
+            <li>王五</li>
+        </ol>
+        <hr>
+        <ol class="subject">
+            <li class="front-end">前端</li>
+            <li id="front-end">学科介绍: 学好前端, 挂帅扬帆! </li>
+            <li>java</li>
+            <li>python</li>
+        </ol>
+        <hr>
+
+        <!-- <p>标签中不能写<h1>到<h6>的标签-->
+        <p>
+            <h2>hello</h2>
+        </p>
+
+    </body>
+</html>

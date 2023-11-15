@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>05_兄弟选择器</title>
+        <style>
+            /*选择div后紧紧相邻向下p元素的兄弟(睡在我下铺的兄弟) - 相邻兄弟选择器*/
+            div+p {
+                color: gold;
+            }
+            /*选中div后所有的兄弟p元素(睡在我下铺的所有的兄弟) - 通用兄弟选择器*/
+            div~p {
+                color: red;
+            }
+            li+li {
+                color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+        <p>前端</p>
+        <div>尚硅谷</div>
+        <p>Java</p>
+        <p>大数据</p>
+        <p>UI</p>
+        <ul>
+            <li>主页</li>
+            <li>秒杀</li>
+            <li>订单</li>
+            <li>我的</li>
+        </ul>
+    </body>
+</html>
