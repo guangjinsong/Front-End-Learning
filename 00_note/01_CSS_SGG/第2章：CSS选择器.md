@@ -738,13 +738,13 @@
 
 ### 3.8.1. 概念
 
-* 简介
+* **简介**
 
   * 选中特殊状态的元素
   * 伪” ? — 虚假的，不是真的
   * 解“伪类”？ — 像类( class )，但不是类，是元素的一种特殊状态
 
-* 示例
+* **示例**
 
   ```html
   <!DOCTYPE html>
@@ -771,4 +771,184 @@
   </html>
   ```
 
+
+
+
+### 3.8.1. 动态伪类
+
+* **分类**
+  1. `:link` : 超链接**未被访问**的状态。
+  2. `:visited` : 超链接**访问过**的状态。
+  3. `:hover` : 鼠标**悬停**在元素上的状态。
+  4. `:active` : 元素**激活**的状态
+
+* **总结**
+  * 什么是激活？—— 按下鼠标不松开。
+  * 遵循 LVHA 的顺序，即： link 、 visited 、 hover 、 active 。
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>08_伪类选择器_动态伪类</title>
+        <style>
+          /*1. 下面四个选择器的顺序不可以变*/
+          /*2. link和visited是a标签独有的状态*/
+          /*选择的是没有访问过的a元素*/
+          a:link {
+            color: gold;
+          }
+          /*选择的是访问过的a元素*/
+          a:visited {
+            color: pink;
+          }
+          /*选中的是鼠标悬浮状态的a元素*/
+          a:hover {
+            color: darkmagenta;
+          }
+          /*选中的是激活状态(鼠标左键点击不动状态)的a元素*/
+          a:active {
+            color: aqua;
+          }
   
+          /*1. focus只有表单类元素可以用, 即可以进行输入的, 例如select input*/
+          /*2. focus: 获取焦点(只要使该元素处于输入状态)*/
+          input:focus, select:focus {
+            color: blue;
+            background-color: green;
+          }
+          </style>
+      </head>
+      <body>
+        <a href="https://www.baidu.com/">去百度</a>
+        <a href="https://www.jd.com/">去京东</a>
+        <hr>
+        <input type="text">
+        <hr>
+        <input type="text">
+        <hr>
+        <input type="text">
+        <hr>
+        <select>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+        </select>
+      </body>
+  </html>
+  ```
+
+  
+
+
+
+### 3.8.2. 结构伪类
+
+1. `:first-child`: 所有兄弟元素中的**第一个**
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+       <head>
+           <meta charset="UTF-8">
+           <title>09_伪类选择器_结构伪类_1</title>
+           <style>
+               /*选中的是div的第一个儿子p元素(按照所有兄弟计算的) 看结构1*/
+               /*div>p:first-child {*/
+               /*    color: red;*/
+               /*}*/
+   
+               /*先找第一儿子, 然后看第一个儿子是否是p元素(按照所有兄弟计算的) 看结构2*/
+               /*div>p:first-child {*/
+               /*    color: red;*/
+               /*}*/
+   
+               /*这个子只能是儿子, 不能是其他子 看结构3*/
+               div>p:first-child {
+                   color: red;
+               }
+   
+               /*选中的是div的后代p元素(按照所有兄弟计算的), 且p的父级是谁无所谓, 但p必须是其父亲的第一个儿子*/
+               /*先div所有后代中的p元素(按照所有兄弟计算的), 再找是第一个儿子元素的p元素 看结构3 4 5*/
+               div p:first-child {
+                   color: red;
+               }
+   
+               /* 选中的是p元素(按照所有兄弟计算的), 且p的祖先(父亲, 或祖父...)是谁无所谓, 但p必须是祖先的第一个儿子 看结构6*/
+              p:first-child {
+                   color: red;
+               }
+   
+   
+           </style>
+       </head>
+       <body>
+           <!-- 结构1 -->
+           <!-- <div> -->
+           <!--     <p>张三: 98</p> -->
+           <!--     <p>李四: 88</p> -->
+           <!--     <p>王五: 78</p> -->
+           <!--     <p>赵六: 678</p> -->
+           <!-- </div> -->
+   
+           <!-- 结构2 -->
+           <div>
+               <span>张三: 98</span>
+               <p>李四: 88</p>
+               <p>王五: 78</p>
+               <p>赵六: 678</p>
+           </div>
+   
+           <!-- 结构三 -->
+           <div>
+               <marquee>
+                   <p>张三: 98</p>
+               </marquee>
+               <p>李四: 88</p>
+               <p>王五: 78</p>
+               <p>赵六: 678</p>
+           </div>
+   
+           <!-- 结构4 -->
+           <div>
+               <marquee>
+                   <span>测试</span>
+                   <p>张三: 98</p>
+               </marquee>
+               <p>李四: 88</p>
+               <p>王五: 78</p>
+               <p>赵六: 678</p>
+           </div>
+   
+           <!-- 结构5 -->
+           <div>
+               <p>测试1</p>
+               <marquee>
+                   <span>测试2</span>
+                   <p>张三: 98</p>
+               </marquee>
+               <p>李四: 88</p>
+               <p>王五: 78</p>
+               <p>赵六: 678</p>
+           </div>
+   
+           <hr><hr><hr><hr>
+           <div> 结构6 </div>
+           <p>测试0</p>
+           <div>
+               <p>测试1</p>
+               <marquee>
+                   <span>测试2</span>
+                   <p>张三: 98</p>
+               </marquee>
+               <p>李四: 88</p>
+               <p>王五: 78</p>
+               <p>赵六: 678</p>
+           </div>
+       </body>
+   </html>
+   ```
+
+   
