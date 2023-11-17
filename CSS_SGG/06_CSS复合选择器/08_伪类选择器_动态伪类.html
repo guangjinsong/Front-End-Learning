@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>08_伪类选择器_动态伪类</title>
+      <style>
+        /*1. 下面四个选择器的顺序不可以变*/
+        /*2. link和visited是a标签独有的状态*/
+        /*选择的是没有访问过的a元素*/
+        a:link {
+          color: gold;
+        }
+        /*选择的是访问过的a元素*/
+        a:visited {
+          color: pink;
+        }
+        /*选中的是鼠标悬浮状态的a元素*/
+        a:hover {
+          color: darkmagenta;
+        }
+        /*选中的是激活状态(鼠标左键点击不动状态)的a元素*/
+        a:active {
+          color: aqua;
+        }
+
+        /*1. focus只有表单类元素可以用, 即可以进行输入的, 例如select input*/
+        /*2. focus: 获取焦点(只要使该元素处于输入状态)*/
+        input:focus, select:focus {
+          color: blue;
+          background-color: green;
+        }
+        </style>
+    </head>
+    <body>
+      <a href="https://www.baidu.com/">去百度</a>
+      <a href="https://www.jd.com/">去京东</a>
+      <hr>
+      <input type="text">
+      <hr>
+      <input type="text">
+      <hr>
+      <input type="text">
+      <hr>
+      <select>
+          <option value="beijing">北京</option>
+          <option value="shanghai">上海</option>
+      </select>
+    </body>
+</html>
