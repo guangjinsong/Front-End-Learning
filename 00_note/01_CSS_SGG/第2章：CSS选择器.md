@@ -19,7 +19,7 @@
 
 * 总结
   1. 复合选择器建立在基本选择器之上, 由多个基础选择器通过不同的方式组合而成
-  2. 复合悬着器可以在复合结构中, 快速而准确的选中元素
+  2. 复合选择器可以在复合结构中, 快速而准确的选中元素
 
 
 
@@ -622,7 +622,7 @@
 * **语法**
   * 选择器1+选择器2 {} 
 
-### 3.6.2. 相邻兄弟选择器
+### 3.6.2. 通用兄弟选择器
 
 * **简介**
   * 选中指定元素后，符合条件的**所有兄弟**元素
@@ -715,7 +715,7 @@
               [title$="4"] {
                   color: blue;
               }
-              /*第五种写法: 选中具有title属性, 且属性值包含字母u结尾的元素*/
+              /*第五种写法: 选中具有title属性, 且属性值包含字母u的元素*/
               [title*="4"] {
                   color: blue;
               }
@@ -774,18 +774,22 @@
 
 
 
-### 3.8.1. 动态伪类
+### 3.8.2. 动态伪类
 
 * **分类**
   1. `:link` : 超链接**未被访问**的状态。
   2. `:visited` : 超链接**访问过**的状态。
   3. `:hover` : 鼠标**悬停**在元素上的状态。
   4. `:active` : 元素**激活**的状态
-
+  5. `:focus`: 获取焦点的元素
+  
 * **总结**
-  * 什么是激活？—— 按下鼠标不松开。
-  * 遵循 LVHA 的顺序，即： link 、 visited 、 hover 、 active 。
-
+  
+  * 激活: 按下鼠标不松开
+  * 遵循 LVHA 的顺序，即： link 、 visited 、 hover 、 active 
+  * 表单类元素才能使用 :focus 伪类
+  * 当用户户点击元素、触摸元素、或通过键盘的 “ tab ” 键等方式，选择元素时，就是获得焦点
+  
 * **示例**
 
   ```html
@@ -844,111 +848,122 @@
 
 
 
-### 3.8.2. 结构伪类
+### 3.8.3. 结构伪类
 
-1. `:first-child`: 所有兄弟元素中的**第一个**
+* 常见伪类
+  * `:first-child`: 所有兄弟元素中的**第一个**
+  * `:last-child` 所有兄弟元素中的**最后一个**
+  * `:nth-child(n)` 所有兄弟元素中的**第** **n** **个**
+  * `:first-of-type` 所有**同类型**兄弟元素中的**第一个**
+  * `:last-of-type` 所有**同类型**兄弟元素中的**最后一个**
+  * `:nth-of-type(n)` 所有**同类型**兄弟元素中的 **第n个** 
+  * `:nth-last-child(n)` 所有兄弟元素中的**倒数第** **n** **个**
+  * `:nth-last-of-type(n)` 所有**同类型**兄弟元素中的倒数第n个
+  * `:only-child` 选择没有兄弟的元素（独生子女）
+  * `:only-of-type` 选择没有**同类型**兄弟的元素
+  * `:root` 根元素
+  * `:empty` 内容为空元素（空格也算内容）
 
-   ```html
-   <!DOCTYPE html>
-   <html lang="en">
-       <head>
-           <meta charset="UTF-8">
-           <title>09_伪类选择器_结构伪类_1</title>
-           <style>
-               /*选中的是div的第一个儿子p元素(按照所有兄弟计算的) 看结构1*/
-               /*div>p:first-child {*/
-               /*    color: red;*/
-               /*}*/
-   
-               /*先找第一儿子, 然后看第一个儿子是否是p元素(按照所有兄弟计算的) 看结构2*/
-               /*div>p:first-child {*/
-               /*    color: red;*/
-               /*}*/
-   
-               /*这个子只能是儿子, 不能是其他子 看结构3*/
-               div>p:first-child {
-                   color: red;
-               }
-   
-               /*选中的是div的后代p元素(按照所有兄弟计算的), 且p的父级是谁无所谓, 但p必须是其父亲的第一个儿子*/
-               /*先div所有后代中的p元素(按照所有兄弟计算的), 再找是第一个儿子元素的p元素 看结构3 4 5*/
-               div p:first-child {
-                   color: red;
-               }
-   
-               /* 选中的是p元素(按照所有兄弟计算的), 且p的祖先(父亲, 或祖父...)是谁无所谓, 但p必须是祖先的第一个儿子 看结构6*/
-              p:first-child {
-                   color: red;
-               }
-   
-   
-           </style>
-       </head>
-       <body>
-           <!-- 结构1 -->
-           <!-- <div> -->
-           <!--     <p>张三: 98</p> -->
-           <!--     <p>李四: 88</p> -->
-           <!--     <p>王五: 78</p> -->
-           <!--     <p>赵六: 678</p> -->
-           <!-- </div> -->
-   
-           <!-- 结构2 -->
-           <div>
-               <span>张三: 98</span>
-               <p>李四: 88</p>
-               <p>王五: 78</p>
-               <p>赵六: 678</p>
-           </div>
-   
-           <!-- 结构三 -->
-           <div>
-               <marquee>
-                   <p>张三: 98</p>
-               </marquee>
-               <p>李四: 88</p>
-               <p>王五: 78</p>
-               <p>赵六: 678</p>
-           </div>
-   
-           <!-- 结构4 -->
-           <div>
-               <marquee>
-                   <span>测试</span>
-                   <p>张三: 98</p>
-               </marquee>
-               <p>李四: 88</p>
-               <p>王五: 78</p>
-               <p>赵六: 678</p>
-           </div>
-   
-           <!-- 结构5 -->
-           <div>
-               <p>测试1</p>
-               <marquee>
-                   <span>测试2</span>
-                   <p>张三: 98</p>
-               </marquee>
-               <p>李四: 88</p>
-               <p>王五: 78</p>
-               <p>赵六: 678</p>
-           </div>
-   
-           <hr><hr><hr><hr>
-           <div> 结构6 </div>
-           <p>测试0</p>
-           <div>
-               <p>测试1</p>
-               <marquee>
-                   <span>测试2</span>
-                   <p>张三: 98</p>
-               </marquee>
-               <p>李四: 88</p>
-               <p>王五: 78</p>
-               <p>赵六: 678</p>
-           </div>
-       </body>
-   </html>
-   ```
+* **总结**
+  * 0 或 不写 ：什么都选不中 —— 几乎不用
+  * n ：选中所有子元素 —— 几乎不用。
+  * 1~正无穷的整数 ：选中对应序号的子元素。
+  * 2n 或 even ：选中序号为偶数的子元素。
+  * 2n+1 或 odd ：选中序号为奇数的子元素
+  * -n+3 ：选中的是前 3 个。
 
-   
+
+
+### 3.8.4. 否定伪类
+
+* 简介
+  * `:not(选择器)` 排除满足括号中条件的元素
+
+* 示例
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>12_伪类选择器_否定伪类</title>
+          <style>
+              /*选中的是div的儿子p元素, 但是排除类名为fail的元素*/
+              /*div>p:not(.fail) {*/
+              /*    color: red;*/
+              /*}*/
+  
+              /*选中的是div的儿子元素, 但是排除title属性值以"你要加油"开头的*/
+              /*div>p:not([title^="你要加油"]) {*/
+              /*    color: red;*/
+              /*}*/
+  
+              /*选中的是div的儿子p元素, 但排除第一个儿子p元素*/
+              /*伪类是一种状态, 可以看作是多个选择器中的最后一个选择器的修饰
+              不可以是其他选择器的修饰*/
+              div>p:not(:first-child) {
+                  color: red;
+              }
+  
+          </style>
+      </head>
+      <body>
+          <div>
+            <p>张三: 98</p>
+            <p>李四: 88</p>
+            <p>王五: 78</p>
+            <p>赵六: 68</p>
+              <!-- title属性的作用是鼠标悬浮时有相关的提示 -->
+            <p class="fail" title="你要加油">孙七: 58</p>
+            <p class="fail" title="你要加油">覃八: 48</p>
+          </div>
+      </body>
+  </html>
+  ```
+
+  
+
+### 3.8.5. UI伪类
+
+* **简介**
+  * `:checked` 被选中的复选框或单选按钮。
+  * `:enable` 可用的表单元素（没有 disabled 属性）
+  * `:disabled` 不可用的表单元素（有 disabled 属性）
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>13_伪类选择器_UI伪类</title>
+          <style>
+              /*选中的勾选的复选框或单选*/
+              input:checked {
+                  width: 100px;
+                  height: 100px;
+                  background-color: green;
+              }
+  
+              /*选中的是被禁用的input元素*/
+              input:disabled {
+                  background-color: gold;
+              }
+  
+              /*选中的是可用的input元素*/
+              /*enable可以不写*/
+              input:enabled {
+                  background-color: pink;
+              }
+          </style>
+      </head>
+      <body>
+          <input type="checkbox">
+          <input type="radio" name="gender">
+          <input type="radio" name="gender">
+          <input type="text" disabled>
+          <input type="text">
+      </body>
+  </html>
+  ```
