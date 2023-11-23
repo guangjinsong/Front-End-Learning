@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>01_CSS三大特性</title>
+        <style>
+            h2 {
+                color: red;
+            }
+            h2 {
+                color: gold;
+            }
+            /*并集选择器的效果跟最后面选择器的效果一样*/
+            div, p {
+                color: red;
+            }
+            div {
+                color: red;
+                font-size: 40px;
+                background-color: aqua;
+            }
+            p {
+                color: darkmagenta;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>大海</h2>
+        <hr>
+        <div>
+            我是div中的文字
+            <span>1</span>
+            <span>12</span>
+            <span>13</span>
+            <span>13</span>
+            <p>
+                <span>2323</span>
+            </p>
+        </div>
+    </body>
+</html>

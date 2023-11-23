@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>01_CSS选择器优先级_1</title>
+        <style>
+            /*ID选择器 > 类选择器 > 元素选择器 > 通配选择器*/
+            /*优先级的顺序与书写顺序无关*/
+            #sea {
+                color: gold;
+            }
+            .love {
+                color: aqua;
+            }
+            h2 {
+                color: red;
+            }
+            * {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="love" id="sea">奔赴山海</h2>
+    </body>
+</html>

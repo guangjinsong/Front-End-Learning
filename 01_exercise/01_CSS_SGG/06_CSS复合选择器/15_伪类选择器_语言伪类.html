@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>15_伪类选择器_语言伪类</title>
+        <style>
+            div:lang(en) {
+                color: red;
+            }
+            div:lang(zh-CN) {
+                color: green;
+            }
+            /*将全部语言属性为简体中文的元素变绿*/
+            :lang(zh-CN) {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div>sgj</div>
+        <!-- 都会变红, 语言伪类只看lang属性的属性值是否对上, 不看实际写的是什么 -->
+        <div lang="en">songguagnjin</div>
+        <div lang="en">宋广进</div>
+        <p>java</p>
+        <div>前端</div>
+    </body>
+</html>

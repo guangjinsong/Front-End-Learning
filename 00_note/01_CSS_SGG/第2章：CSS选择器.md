@@ -967,3 +967,240 @@
       </body>
   </html>
   ```
+
+
+
+### 3.8.5. 目标伪类
+
+* **简介**
+
+  **`:target `**: 选中锚点指向的元素
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>14_伪类选择器_目标伪类</title>
+          <style>
+              div {
+                  background-color: darkgray;
+                  height: 300px;
+              }
+              div:target {
+                  background-color: green;
+              }
+          </style>
+      </head>
+      <body>
+          <a href="#one">去看第1个</a>
+          <a href="#two">去看第2个</a>
+          <a href="#three">去看第3个</a>
+          <a href="#four">去看第4个</a>
+          <a href="#five">去看第5个</a>
+          <a href="#six">去看第6个</a>
+          <div id="one">第1个</div>
+          <br>
+          <div id="two">第2个</div>
+          <br>
+          <div id="three">第3个</div>
+          <br>
+          <div id="four">第4个</div>
+          <br>
+          <div id="five">第5个</div>
+          <br>
+          <div id="six">第6个</div>
+          <br>
+      </body>
+  </html>
+  ```
+
+  
+
+### 3.8.6. 语言伪类
+
+* **简介**
+
+  **`:lang() `**: 根据指定的语言选择元素（本质是看 lang 属性的值）
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+      <head>
+          <meta charset="UTF-8">
+          <title>15_伪类选择器_语言伪类</title>
+          <style>
+              div:lang(en) {
+                  color: red;
+              }
+              div:lang(zh-CN) {
+                  color: green;
+              }
+              /*将全部语言属性为简体中文的元素变绿*/
+              :lang(zh-CN) {
+                  color: green;
+              }
+          </style>
+      </head>
+      <body>
+          <div>sgj</div>
+          <!-- 都会变红, 语言伪类只看lang属性的属性值是否对上, 不看实际写的是什么 -->
+          <div lang="en">songguagnjin</div>
+          <div lang="en">宋广进</div>
+          <p>java</p>
+          <div>前端</div>
+      </body>
+  </html>
+  ```
+
+  ![image-20231122195231860](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311221952950.png)
+
+
+
+## 3.9. 伪元素选择器
+
+* **简介**
+
+  选中元素中的一些特殊位置
+
+* **常见伪元素**
+
+  * **`::first-letter`** : 选中元素中的**第一个文字**
+  * **`::first-line`**: 选中元素中的**第一行文字**
+  * **`::selection`** : 选中**被鼠标选中的**内容
+  * **`::placeholder `**: 选中输入框的**提示文字**
+  * **`::before `**: 在元素**最开始**的位置，创建一个子元素（必须用 content 属性指定内容）
+  * **`::after`** : 在元素**最后**的位置，创建一个子元素（必须用 content 属性指定内容）
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>16_伪元素选择器</title>
+          <style>
+              /*伪元素: 很像元素, 但不是元素, 是元素中的一些特殊位置*/
+              /*选中的是div中的第一个文字*/
+              div::first-letter {
+                  color: red;
+                  font-size: 40px;
+              }
+  
+              /*选中的div中的第一行文字*/
+              div::first-line {
+                  background-color: gold;
+              }
+  
+              /*选中的是被鼠标选择的文字*/
+              div::selection {
+                  background-color: green;
+                  color: red;
+              }
+  
+              /*选中的是input元素中的提示文字*/
+              input::placeholder {
+                  color: aqua;
+              }
+  
+              /*选中的是p元素最开始的位置, 随后创建一个子元素*/
+              p::before {
+                  content: "$";
+              }
+  
+              /*选中的是p元素最末尾的位置, 随后创建一个子元素*/
+              p::after {
+                  content: ".00";
+              }
+          </style>
+      </head>
+      <body>
+          <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum illum iste modi nam, non obcaecati odit sed ut voluptates! Accusantium architecto at atque blanditiis consectetur, cupiditate doloremque dolorum ea eius eos eveniet expedita hic itaque laudantium mollitia necessitatibus nemo neque nesciunt non officia pariatur possimus quae quisquam reiciendis reprehenderit saepe sint tenetur ullam vero, voluptates. Dignissimos facere ratione rem!
+          </div>
+  
+          <hr>
+          <hr>
+  
+          <input type="text" placeholder="请输入您的用户名">
+  
+          <hr>
+          <hr>
+  
+          <p>199</p>
+          <p>299</p>
+          <p>399</p>
+          <p>499</p>
+      </body>
+  </html>
+  ```
+
+  ![image-20231122195546089](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311221955187.png)
+
+   
+
+## 4. 选择器的权重
+
+* **简介**
+
+  通过**不同的选择器**，选中**相同的元素** ，并且为**相同的样式名**设置**不同的值**时，就发生了样式的冲突。到底应用哪个样式，此时就需要看**优先级**了
+
+* **优先级**
+
+  **行内样式** > **ID选择器（1，0，0）** > **类选择器（0，1，0）** > **元素选择器（0，0，1）** > **通配选择器（0，0，0）**
+
+* **计算规则**
+
+  * **计算方式**
+
+    每个选择器，都可计算出一组权重，格式为： (a,b,c), 其中abc的简介如下
+
+    * a : **ID** 选择器的个数
+    * b : **类、伪类、属性** 选择器的个数
+    * c : **元素、伪元素** 选择器的个数
+
+    |          选择器           |  权重   |
+    | :-----------------------: | :-----: |
+    |           ul>li           | (0,0,2) |
+    |    div ul>li p a span     | (0,0,6) |
+    |     \#atguigu .slogan     | (1,1,0) |
+    |    \#atguigu .slogan a    | (1,1,1) |
+    | \#atguigu .slogan a:hover | (1,2,1) |
+
+  * 比较规则：按照**从左到右**的顺序，依次比较大小，当前位胜出后，后面的不再对比，例如：
+
+    * (1,0,0) > (0,2,2)
+    * (1,1,0) > (1,0,3)
+    * (1,1,3) > (1,1,2)
+
+  * 特殊规则
+    * **行内样式**权重大于**所有选择器**。
+    * `!important` 的权重，大于**行内样式**，大于**所有选择器**，**权重最高！**
+    * 如果权重相同, 那么按照**"后来者居上"**的规则
+
+
+
+# 5. CSS的三大特性
+
+* **层叠性**
+  * 如果发生了样式冲突，那就会根据一定的规则（选择器优先级），进行样式的层叠（覆盖）
+  * 样式冲突: 元素的**同一个样式名**，被设置了**不同的值**，这就是冲突
+* **继承性**
+  * 元素会自动拥有**其父元素**、或**其祖先元素**上所设置的**某些样式**
+  * 优先继承**离得近**的
+  * 常见的可继承属性
+    * `text-??` 
+    * `font-??` 
+    * `line-??` 
+    * `color`
+    *  ......
+    * 
+
+* 优先级
+  * !important > **行内样式** > **ID****选择器** > **类选择器** > **元素选择器** > ***** > **继承的样式**
+  * 计算权重时需要注意：**并集选择器的每一个部分是分开算的**

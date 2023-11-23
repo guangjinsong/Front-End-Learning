@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_CSS选择器优先级_2 </title>
+        <style>
+            /*有权重先看权重, 若权重相同则按照后来者居上的规则*/
+            div span.slogan {
+                color: red;
+            }
+            div>p>span:nth-child(1) {
+                color: gold;
+            }
+            .slogan {
+                color: purple !important;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <p>
+                <span class="slogan">但使龙城飞将在</span>
+                <span>不教胡马度阴山</span>
+            </p>
+        </div>
+    </body>
+</html>
