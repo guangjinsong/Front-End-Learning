@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>03_颜色_第2种表示_rgb或rgba</title>
+        <style>
+            .col1 {
+                color: rgb(255, 0, 0);
+            }
+            .col2 {
+                color: rgb(100%, 0%, 0%);
+                /*不可以混着来*/
+                /*color: rgb(6, 0%, 0%);*/
+            }
+            /*a表示是透明度*/
+            /*0是完全透明*/
+            /*1是完全不透明*/
+            .col3 {
+                color: rgba(255, 0, 0, 0.4);
+                /*透明度可以混着来*/
+                /*color: rgba(255, 0, 0, 40%);*/
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="col1">color1</h2>
+        <h2 class="col2">color2</h2>
+        <h2 class="col3">color3</h2>
+    </body>
+</html>
