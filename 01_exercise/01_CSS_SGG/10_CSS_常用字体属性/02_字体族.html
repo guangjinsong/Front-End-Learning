@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>02_字体族</title>
+        <style>
+            .sgj1 {
+                font-size: 50px;
+                font-family: "宋体";
+            }
+            .sgj2 {
+                font-size: 50px;
+                font-family: "Times New Roman";
+            }
+            .sgj3 {
+                font-size: 50px;
+                font-family: "Book Antiqua";
+            }
+            /*1. 先检查第一个字体是否可用, 如果可用就用第一个字体, 否则依次
+              从后检查*/
+            /*2. 如果是多个字体, 最好都是衬线或者非衬线字体, 不要混合*/
+            /*3. sans-serif: 如果前面的字体都不可用, 就会联系浏览器选择一个
+            现有的非衬线字体*/
+            /*4. 最好都是英文名*/
+            .sgj4 {
+                font-size: 50px;
+                font-family: "Arial Narrow", "Microsoft JhengHei", sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sgj1">font_family1</div>
+        <div class="sgj2">font_family2</div>
+        <div class="sgj3">font_family3</div>
+        <div class="sgj4">font_family4</div>
+    </body>
+</html>

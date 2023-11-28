@@ -145,3 +145,159 @@
 * **示例**
 
   ![image-20231127204716725](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202311272047760.png)
+
+
+
+## 3.2. 字体族
+
+* **简介**
+  * 属性名： `font-family`
+  * 作用：控制字体类型
+
+* **总结**
+
+  * 使用字体的英文名字兼容性会更好，具体的英文名可以自行查询，或在电脑的设置里去寻找
+  * 如果字体名包含空格，必须使用引号包裹起来
+  * 可以设置多个字体，按照从左到右的顺序逐个查找，找到就用，没有找到就使用后面的，且通常在最后写上 serif （衬线字体: 有棱角）或 sans-serif （非衬线字体: 无棱角. 用的较多）
+  * windows 系统中，默认的字体就是微软雅黑
+  * 最好都是英文名
+  * `sans-serif`: 如果前面的字体都不可用, 就会联系浏览器选择一个现有的非衬线字体
+
+* **示例**
+
+  ```html
+  <style>
+      .sgj1 {
+          font-size: 50px;
+          font-family: "宋体";
+      }
+      .sgj2 {
+          font-size: 50px;
+          font-family: "Times New Roman";
+      }
+      .sgj3 {
+          font-size: 50px;
+          font-family: "Book Antiqua";
+      }
+      /*1. 先检查第一个字体是否可用, 如果可用就用第一个字体, 否则依次
+        从后检查*/
+      /*2. 如果是多个字体, 最好都是衬线或者非衬线字体, 不要混合*/
+      /*3. sans-serif: 如果前面的字体都不可用, 就会联系浏览器选择一个
+      现有的非衬线字体*/
+      /*4. 最好都是英文名*/
+      .sgj4 {
+          font-size: 50px;
+          font-family: "Arial Narrow", "Microsoft JhengHei", sans-serif;
+      }
+  </style>
+  ```
+
+  
+
+## 3.3. 字体风格
+
+* **简介**
+  * 属性名: `font-style`
+  * 作用：控制字体是否为斜体
+  * 常用值
+    * `normal `：正常（默认值）
+    * `italic `：斜体（使用字体自带的斜体效果, **推荐**）
+    * `oblique` ：斜体（强制倾斜产生的斜体效果）
+* **总结**
+  * 语义的事交给html, 样式的事情交给css
+
+* **示例**
+
+  ```html
+  <style>
+      .sgj1 {
+          font-style: normal; /*默认风格*/
+      }
+      .sgj2 {
+          font-style: italic;
+      }
+      .sgj3 {
+          font-style: oblique;
+      }
+      /*语义的事交给html, 样式的事情交给css*/
+      em {
+          font-style: normal;
+      }
+  </style>
+  ```
+
+  
+
+## 3.4. 字体粗细
+
+* **简介**
+
+  * 属性名： `font-weight`
+
+  * 作用：控制字体的粗细
+
+  * 常用值
+
+    * 关键词
+
+      * lighter ：细
+      * normal ： 正常
+      * bold ：粗
+      * bolder ：很粗 （多数字体不支持）
+
+    * 数值
+
+      * 100~1000 且无单位，数值越大，字体越粗 （或一样粗，具体得看字体设计时的
+
+      精确程度）
+
+      * 100~300 等同于 lighter ， 400~500 等同于 normal ， 600 及以上等同于bold 
+
+* **示例**
+
+  ```html
+  <style>
+      .sgj1 {
+          /*font-weight: lighter;*/
+          font-weight: 150;
+      }
+      .sgj2 {
+          /*font-weight: normal;*/
+          font-weight: 450;
+      }
+      .sgj3 {
+          /*font-weight: bold;*/
+          font-weight: 800;
+      }
+  </style>
+  ```
+
+  
+
+## 3.5. 字体复合写法
+
+* **简介**
+
+  * 属性名： `font` ，可以把上述字体样式合并成一个属性
+  * 作用：将上述所有字体相关的属性复合在一起编写
+  * 编写规则：
+    * 字体大小、字体族必须都写上。
+    * 字体族必须是最后一位、字体大小必须是倒数第二位。
+    * 各个属性间用空格隔开。
+
+* **总结**
+
+  * 实际开发中更推荐复合写法，但这也不是绝对的，比如只想设置字体大小，那就直接用 font-size 属性
+
+* **示例**
+
+  ```html
+  <style>
+      /*大小(必须放在第一位) 字体族(必须放在最后一位)*/
+      .sgj {
+          font:  italic 100px "songti","Microsoft JhengHei";
+      }
+  </style>
+  ```
+
+  
