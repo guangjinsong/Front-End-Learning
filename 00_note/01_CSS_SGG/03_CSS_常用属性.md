@@ -300,4 +300,80 @@
   </style>
   ```
 
+
+
+
+# 4. 常用文本属性
+
+## 4.1. 文本颜色
+
+* **简介**
+  * 属性名: `color`
+  * 作用: 控制文字颜色
+  * 可选值
+    * 颜色名
+    * `rgb` 或 `rgba`
+    * `HEX` 或 `HEXA` （十六进制）
+    * `HSL` 或 `HSLA`
+
+* **总结**
+  * 开发中常用的是： `rgb/rgba` 或 `HEX/HEXA` （十六进制）。
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>01_文本颜色</title>
+          <style>
+              .color {
+                  color: rgb(255, 0, 0);
+              }
+          </style>
   
+      </head>
+      <body>
+          <div class="color">奔赴山海</div>
+      </body>
+  </html>
+  ```
+
+
+
+## 4.2. 文本间距
+
+* **简介**
+  * **分类**
+    * 字母间距: `letter-spacing`
+    * 单词间距: `word-spacing`
+  * **属性值**
+    * 单位为`px`, 正值让间距增大, 负值让间距缩小
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>02_文本间距</title>
+          <style>
+              div {
+                  /* 字母间距 */
+                 letter-spacing: 1px;
+                 /* 单词间距 */
+                 /* 根据空格判断单词 */
+                 word-spacing: 5px;
+              }
+          </style>
+      </head>
+      <body>
+          <div>you got a dream, you gotta protect it.</div>
+      </body>
+  </html>
+  ```
+
+  
+
