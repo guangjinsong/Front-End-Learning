@@ -139,8 +139,18 @@
 * **总结**
 
   * Chrome 浏览器支持的最小文字为 12px ，默认的文字大小为 16px ，并且 0px 会自动消失
+
   * 不同浏览器默认的字体大小可能不一致，所以最好给一个明确的值，不要用默认大小
+
   * 通常以给 body 设置 font-size 属性，这样 body 中的其他元素就都可以继承了
+
+  * 由于字体设计原因，文字最终呈现的大小，并不一定与 font-size 的值一致，可能大，也可能小,. font-size 设为 40px ，最终呈现的文字，可能比 40px 大，也可能比 40px小
+
+  * `font-size`是指框的高度
+
+    ![image-20231209215635073](https://dawn1314.oss-cn-beijing.aliyuncs.com/typoraimg/202312092156139.png)
+
+    
 
 * **示例**
 
@@ -377,3 +387,121 @@
 
   
 
+## 4.3. 文本修饰
+
+* **简介**
+
+  * 属性名: `text-decoration`
+  * 作用: 控制文本的各种装饰线
+  * 可选值
+    * none ： 无装饰线（常用）
+    * underline ：下划线（常用）
+    * overline ： 上划线
+    * line-through ： 删除线
+  * 搭配值
+    * dotted ：虚线
+    * wavy ：波浪线
+    * 也可以指定颜色
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>03_文本修饰</title>
+        <style>
+          div {
+            /*text-decoration: overline;*/
+            /*text-decoration: underline;*/
+            /*上划的绿色虚线*/
+            text-decoration: underline dotted red;
+            /*text-decoration: line-through;*/
+            /*text-decoration: none;*/
+          }
+          a {
+            <!--去掉超链接的下划线-->  
+            text-decoration: none;
+          }
+        </style>
+      </head>
+      <body>
+          <div>
+            奔赴山海
+          </div>
+        <a href="www.baidu.com">baidu</a>
+        <ins>测试1</ins>
+        <del>测试1</del>
+      </body>
+  </html>
+  ```
+
+
+
+## 4.4. 文本缩进
+
+* **简介**
+
+  * 属性名: `text-indent`
+  * 作用: 控制文本首字母的缩进
+  * 属性值: `css`中的长度单位, 例如`px`
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>04_文本缩进</title>
+        <style>
+          div {
+            font-size: 10px;
+            text-indent: 20px;
+          }
+        </style>
+      </head>
+      <body>
+        <div>1111111111111111111111111111111111111</div>
+      </body>
+  </html>
+  ```
+
+
+
+## 4.5. 文本对齐_水平
+
+* **简介**
+
+  * 属性名: `text-align`
+  * 作用: 控制文本的水平对齐方式
+  * 常用值
+    * left ：左对齐（默认值）
+    * right ：右对齐
+    * center ：居中对齐
+
+* **示例**
+
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>05_文本对齐_水平</title>
+          <style>
+              div {
+                  font-size: 10px;
+                  /*text-align: center;*/
+                  /*text-align: left;*/
+                  text-align: right;
+              }
+          </style>
+      </head>
+      <body>
+          <div>111</div>
+      </body>
+  </html>
+  ```
+
+  
